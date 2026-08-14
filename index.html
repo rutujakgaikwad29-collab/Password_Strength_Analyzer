@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CyberSecure Password Analyzer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <span class="shield" aria-hidden="true">🛡️</span>
+    <div>
+      <h1>CyberSecure Password Analyzer</h1>
+      <p class="subtitle">Security assessment for resilient credentials</p>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- INPUT CARD -->
+  <section class="card">
+    <h2>Enter Your Password</h2>
+
+    <label for="password-input" class="field-label">Password</label>
+    <div class="input-row">
+      <input
+        type="password"
+        id="password-input"
+        placeholder="Type a password to check its strength"
+        autocomplete="off"
+        aria-describedby="privacy-note"
+      >
+      <button type="button" id="toggle-btn" class="icon-btn" aria-pressed="false" aria-label="Show password">👁️</button>
+    </div>
+
+    <div class="button-row">
+      <button type="button" id="clear-btn" class="btn btn-secondary">Clear</button>
+    </div>
+
+    <p id="privacy-note" class="privacy-note">🔒 Your password is checked locally in your browser. It is never sent anywhere or stored.</p>
+  </section>
+
+  <!-- STRENGTH CARD -->
+  <section class="card">
+    <h2>Strength Result</h2>
+
+    <div class="strength-top">
+      <span id="strength-label" class="strength-label" data-level="none">Enter a password above</span>
+      <span id="score-text" class="score-text">Score: 0 / 7</span>
+    </div>
+
+    <div class="strength-bar-track" role="img" aria-label="Password strength bar">
+      <div id="strength-bar-fill" class="strength-bar-fill"></div>
+    </div>
+
+    <div id="common-warning" class="warning-box" hidden>
+      ⚠ This password is commonly used and easy to guess.
+    </div>
+  </section>
+
+  <!-- REQUIREMENTS CARD -->
+  <section class="card">
+    <h2>Password Requirements</h2>
+    <ul id="requirements-list" class="requirements-list"></ul>
+  </section>
+
+  <!-- WARNINGS CARD -->
+  <section class="card">
+    <h2>Pattern Warnings</h2>
+    <ul id="pattern-warnings" class="pattern-list"></ul>
+  </section>
+
+  <!-- SUGGESTIONS CARD -->
+  <section class="card">
+    <h2>Suggestions</h2>
+    <ul id="suggestions-list" class="suggestions-list"></ul>
+  </section>
+
+  <!-- GENERATOR CARD -->
+  <section class="card">
+    <h2>Generate a Strong Password</h2>
+
+    <label for="gen-length" class="field-label">
+      Length: <span id="gen-length-value">16</span> characters
+    </label>
+    <input type="range" id="gen-length" min="8" max="32" value="16">
+
+    <button type="button" id="generate-btn" class="btn btn-primary btn-full">Generate Strong Password</button>
+
+    <div id="generated-row" class="generated-row" hidden>
+      <output id="generated-output" class="generated-output"></output>
+      <button type="button" id="copy-btn" class="btn btn-secondary">Copy</button>
+    </div>
+    <p id="copy-feedback" class="copy-feedback" aria-live="polite"></p>
+
+    <p class="generator-note">Uses <code>crypto.getRandomValues()</code> for secure randomness, and always includes an uppercase letter, lowercase letter, number, and symbol.</p>
+  </section>
+
+  <!-- SECURITY NOTE -->
+  <section class="card note-card">
+    <h2>A Few Reminders</h2>
+    <ul class="reminders-list">
+      <li>This tool estimates strength — it is not a guarantee against every real-world attack.</li>
+      <li>Use a different password for every important account.</li>
+      <li>Consider using a password manager to store strong, unique passwords.</li>
+      <li>Turn on two-factor authentication (2FA) wherever it's available.</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Runs entirely in your browser. No data is sent, stored, or logged.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
