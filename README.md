@@ -119,5 +119,5 @@ Also try these to see the other features in action:
 
 ## Author
 
-**[Your Name Here]**
+Rutuja Gaikwad 
 Cyber Security Intern — Password Strength Analyzer Project
